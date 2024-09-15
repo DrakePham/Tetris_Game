@@ -55,3 +55,12 @@ void Grid::draw()
         }
     }
 }
+
+bool Grid::isCellOutOfBounds(int row, int column)
+{
+    if (row < 0 || row >= numRows || column < 0 || column >= numCols)
+    {
+        return true;
+    }
+    return false;
+}

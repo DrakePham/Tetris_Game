@@ -3,10 +3,11 @@
 Block::Block()
 {
     cellSize = 30;
-    rotationState = 3;
+    rotationState = 0;
     colors = getCellColors();
     rowOffset = 0;
     columnOffset = 0;
+
 }
 
 
@@ -29,6 +30,7 @@ void Block::move(int row, int column)
 vector<Position> Block::getCellPositions()
 {
     vector<Position> tiles = cells[rotationState];
+    
     vector<Position> movedTiles;
     for (Position pos : tiles)
     {
@@ -37,4 +39,31 @@ vector<Position> Block::getCellPositions()
     return movedTiles;
 }
 
+void Block::rotate()
+{
+    if(rotationState == (int)cells.size() - 1){
+        rotationState = 0;
+    }
+    else rotationState += 1;
 
+}
+
+void Block::undoRotate()
+{
+    if(rotationState == 0){
+        rotationState = (int)cells.size() - 1;
+    }
+    else rotationState -= 1;
+
+    
+}
+
+int Block::getRowOffset()
+{
+    return this->rowOffset;
+}
+
+int Block::getColumnOffset()
+{
+    return this->columnOffset;
+}

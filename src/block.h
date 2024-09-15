@@ -3,6 +3,7 @@
 #include <map>
 #include "position.h"
 #include "colors.h"
+#include <iostream>
 
 using namespace std;
 
@@ -15,6 +16,10 @@ public:
     void move(int row, int column);
     void draw();
     vector<Position>  getCellPositions();
+    void rotate();
+    void undoRotate();
+    int getRowOffset();
+    int getColumnOffset();
 
 private:
     int cellSize;

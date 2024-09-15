@@ -14,6 +14,7 @@ public:
     void InitializeGrid();
     void printGrid();
     void draw();
+    bool isCellOutOfBounds(int row, int column);
 
 private:
     int numRows;

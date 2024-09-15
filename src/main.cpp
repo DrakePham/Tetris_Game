@@ -1,6 +1,5 @@
 #include <raylib.h>
-#include "grid.h"
-#include "TBlock.cpp"
+#include "game.h"
 
 int main()
 {
@@ -11,17 +10,17 @@ int main()
        
         SetTargetFPS(60);
 
-        Grid grid = Grid();
-        grid.printGrid();
-
-        TBlock tBlock = TBlock();
-        tBlock.move(4, 3);
-        while (!WindowShouldClose())
+        Game game = Game();
+       
+        while (!WindowShouldClose()
+        )
         {
+            game.handleInput();
             BeginDrawing();
             ClearBackground(darkBlue);
-            grid.draw();
-            tBlock.draw();
+            
+            game.draw();
+
             EndDrawing();
         }
         
