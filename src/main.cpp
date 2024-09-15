@@ -1,6 +1,6 @@
 #include <raylib.h>
 #include "grid.h"
-#include "LBlock.cpp"
+#include "TBlock.cpp"
 
 int main()
 {
@@ -14,13 +14,14 @@ int main()
         Grid grid = Grid();
         grid.printGrid();
 
-        LBlock lBlock = LBlock();
+        TBlock tBlock = TBlock();
+        tBlock.move(4, 3);
         while (!WindowShouldClose())
         {
             BeginDrawing();
             ClearBackground(darkBlue);
             grid.draw();
-            lBlock.draw();
+            tBlock.draw();
             EndDrawing();
         }
         
