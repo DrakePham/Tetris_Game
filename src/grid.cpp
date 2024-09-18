@@ -64,3 +64,59 @@ bool Grid::isCellOutOfBounds(int row, int column)
     }
     return false;
 }
+
+void Grid::setCell(int row, int column, int id)
+{
+    grid[row][column] = id;
+}
+
+bool Grid::isCellEmpty(int row, int column)
+{
+    if(grid[row][column] == 0){
+        return true;
+    }
+    return false;
+}
+
+int Grid::clearFullRows()
+{
+    int completedRows = 0;
+    for(int row = numRows - 1; row >= 0; row--){
+        if(isRowFull(row)){
+            clearRow(row);
+            completedRows++;
+        }else if(completedRows > 0){
+            moveRowsDown(row, completedRows);
+        }
+    }
+    return completedRows;
+}
+
+bool Grid::isRowFull(int row)
+{
+    for (int column = 0; column < numCols; column++)
+    {
+        if (grid[row][column] == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+void Grid::clearRow(int row)
+{
+    for (int column = 0; column < numCols; column++)
+    {
+        grid[0][column] = 0;
+    }
+}
+
+void Grid::moveRowsDown(int row, int numRows)
+{
+    for(int column  = 0; column < numCols; column++){
+        grid[row + numRows][column] = grid[row][column];
+        grid[row][column] = 0;
+    }
+}
+
