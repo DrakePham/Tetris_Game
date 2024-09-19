@@ -30,6 +30,7 @@ int main()
 
         while (!WindowShouldClose())
         {
+            UpdateMusicStream(game.music);
             game.handleInput();
             if(eventTriggered(0.2)){
                 game.moveBlockDown();
