@@ -1,5 +1,7 @@
 #include <raylib.h>
 #include "game.h"
+#include "colors.h"
+#include <iostream>
 
 double lastUpdateTime = 0;
 
@@ -16,23 +18,40 @@ int main()
 {
     
     try{
-        InitWindow(300, 600, "Tetris Game");
-        Color darkBlue = {0, 121, 241, 255};
+        InitWindow(500, 620, "Tetris Game");
        
         SetTargetFPS(60);
 
+        Font font = LoadFontEx("../Front/monogram.ttf", 64, 0, 0);
+
         Game game = Game();
-       
+
+
+
         while (!WindowShouldClose())
         {
             game.handleInput();
-            if(eventTriggered(0.02)){
+            if(eventTriggered(0.2)){
                 game.moveBlockDown();
             }
 
             BeginDrawing();
             ClearBackground(darkBlue);
+            DrawTextEx(font, "Score", {365, 15}, 38, 2, WHITE);
+            DrawTextEx(font, "Next", {370, 175}, 38, 2, WHITE);
+            if(game.isGameOver){
+                DrawTextEx(font, "GAME", {370, 450}, 38, 2, WHITE);
+                DrawTextEx(font, "OVER", {370, 500}, 38, 2, WHITE);
+            }
             
+            char scoreText[10];
+            sprintf(scoreText, "%d", game.score);
+            Vector2 textSize = MeasureTextEx(font, scoreText, 38, 2);
+            
+            DrawRectangleRounded({320, 55, 170, 60}, 0.3, 6, lightBlue);
+            DrawTextEx(font, scoreText, {320 + (170 - textSize.x)/2, 65}, 38, 2, WHITE);
+            DrawRectangleRounded({320, 215, 170, 180}, 0.3, 6, lightBlue);
+
             game.draw();
 
             EndDrawing();

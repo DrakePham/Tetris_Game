@@ -11,15 +11,16 @@ Block::Block()
 }
 
 
-void Block::draw()
+void Block::draw(int offsetX, int offsetY)
 {
     vector<Position> value = getCellPositions();
         for (Position pos : value)
         {
             Color cellColor = colors[id];
-            DrawRectangle(pos.column * cellSize + 1, pos.row * cellSize + 1, cellSize - 1, cellSize - 1, cellColor);
+            DrawRectangle(pos.column * cellSize + offsetX, pos.row * cellSize + offsetY, cellSize - 1, cellSize - 1, cellColor);
         }   
 }
+
 
 void Block::move(int row, int column)
 {

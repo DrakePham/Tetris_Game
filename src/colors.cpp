@@ -10,8 +10,10 @@ const Color yellow = {255, 255, 0, 255};
 const Color purple = {128, 0, 128, 255};
 const Color blue = {0, 0, 255, 255};
 const Color cyan = {0, 255, 255, 255};
+const Color lightBlue = {173, 216, 230, 255};
+const Color darkBlue = {0, 121, 241, 255};
 
 vector<Color> getCellColors()
 {
-    return {darkGrey, green, red, orange, yellow, purple, blue, cyan};
+    return {darkGrey, green, red, orange, yellow, purple, blue, cyan, lightBlue, darkBlue};
 }

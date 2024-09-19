@@ -14,7 +14,7 @@ public:
 
     Block();
     void move(int row, int column);
-    void draw();
+    void draw(int offsetX, int offsetY);
     vector<Position>  getCellPositions();
     void rotate();
     void undoRotate();
