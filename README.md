@@ -1,7 +1,9 @@
 # Tetris Game in C++
 
 This project is a simple implementation of the classic Tetris game in C++, using the raylib library for graphics. The game features object-oriented design to manage the different components of the game. 
-<!-- such as the board, tetrominoes, and the game controller. -->
+
+[Game Demo](https://youtu.be/dppPFChJRgQ)
+
 
 
 ## Entity Relationships
