@@ -45,11 +45,69 @@ For more detailed information on how these entities relate to each other, please
 
 ## How to Run
 
-To compile and run the game, follow these steps:
-1. Make sure you have raylib installed.
-2. Clone this repository.
-3. Compile the game using the provided `Makefile` or manually compile with your compiler of choice.
-4. Run the executable.
+### macOS
+
+1. **Install Raylib**:
+   - Use Homebrew to install Raylib:
+     ```bash
+     brew install raylib
+     ```
+
+2. **Clone the Repository**:
+   - Open a terminal and clone the repository:
+     ```bash
+     git clone https://github.com/DrakePham/Tetris_Game.git
+     cd Tetris_Game
+     ```
+
+3. **Compile the Game**:
+   - If there's a `Makefile` provided:
+     ```bash
+     make
+     ```
+   - Alternatively, compile manually:
+     ```bash
+     clang++ -std=c++17 -o tetris main.cpp -lraylib -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
+     ```
+
+4. **Run the Game**:
+   - After compiling, run the executable:
+     ```bash
+     ./tetris
+     ```
+
+### Windows
+
+1. **Install Raylib**:
+   - Download the Raylib installer from the [official site](https://github.com/raysan5/raylib/releases) or use a package manager like `vcpkg`:
+     ```bash
+     vcpkg install raylib
+     ```
+
+2. **Clone the Repository**:
+   - Open Command Prompt or PowerShell and clone the repository:
+     ```bash
+     git clone https://github.com/DrakePham/Tetris_Game.git
+     cd Tetris_Game
+     ```
+
+3. **Compile the Game**:
+   - If there’s a `Makefile`, you can use MinGW or any other compiler that supports `make`:
+     ```bash
+     mingw32-make
+     ```
+   - Alternatively, compile manually using g++ or Visual Studio:
+     ```bash
+     g++ -std=c++17 -o tetris.exe main.cpp -lraylib -lopengl32 -lgdi32 -lwinmm
+     ```
+
+4. **Run the Game**:
+   - After compiling, run the executable:
+     ```bash
+     tetris.exe
+     ```
+
+
 
 ## Controls
 
