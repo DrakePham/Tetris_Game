@@ -8,13 +8,36 @@ This project is a simple implementation of the classic Tetris game in C++, using
 
 In this Tetris implementation, the key entities and their relationships are as follows:
 
-<!-- 1. **Game Board**: Manages the grid where the tetrominoes are placed. It stores the state of each cell (empty or filled) and handles logic such as line clearing.
-   
-2. **Tetromino**: Represents the falling blocks (tetrominoes). Each tetromino consists of four blocks, and they can be rotated and moved across the game board.
+1. **Game**:  
+   - The central entity that controls the entire game logic. It manages the game state, such as the current score, the `currentBlock` (active falling block), the `nextBlock` (upcoming block), and the `grid` (the playing area).
+   - **Relationships**: 
+     - The `Game` class **contains** a `Grid`, `currentBlock`, `nextBlock`, and **interacts** with `Block` and `Grid` to handle game logic, collision detection, block locking, and row clearing.
+     - **Game** uses the `Grid` to place the falling blocks and render the board, while managing the `Block` entities (such as moving, rotating, and dropping them).
 
-3. **Game Controller**: Handles user input (keyboard commands) and manages the game state (whether the game is running, paused, or over).
+2. **Grid**:
+   - Represents the 2D game area where blocks fall and are placed.
+   - **Relationships**: 
+     - The `Grid` class **interacts** with the `Block` class, placing the blocks in the correct positions, checking for filled rows, and clearing them when necessary.
+     - The `Grid` also **uses** `Color` to render the blocks within the grid cells.
 
-The relationship between these entities is that the **Tetromino** objects are placed onto the **Game Board**, and their movement and rotation are controlled by the **Game Controller**. The game board also checks for filled lines and clears them, updating the game state accordingly. -->
+3. **Block**:
+   - Represents individual Tetris blocks, also known as Tetrominoes, with distinct shapes and rotation states.
+   - **Relationships**:
+     - The `Block` class **contains** multiple `Position` objects that define the coordinates of the block's individual cells.
+     - It **uses** `Color` to assign a specific color to the block for rendering.
+     - Specific block types (e.g., `SBlock`, `IBlock`, etc.) **inherit** from the `Block` class to define their unique shapes and rotation behavior.
+
+4. **Position**:
+   - Represents the row and column coordinates of each cell in a block.
+   - **Relationships**: 
+     - `Position` is **used by** the `Block` class to define the layout of each block.
+     - Each block is made up of multiple `Position` objects to represent its shape.
+
+5. **Color**:
+   - Defines a set of color constants used to differentiate blocks and render the grid cells.
+   - **Relationships**:
+     - `Color` is **used by** both the `Grid` and `Block` classes to render the game elements with appropriate colors.
+
 
 For more detailed information on how these entities relate to each other, please refer to the document in the link below:
 
